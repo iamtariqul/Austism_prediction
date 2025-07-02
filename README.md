@@ -1,82 +1,63 @@
-# Chronic Kidney Disease Prediction App
+# Autism Spectrum Disorder Prediction App
 
-This is a web application built with Streamlit that predicts the likelihood of Chronic Kidney Disease (CKD) based on various medical parameters and blood sample data.
+A Streamlit web application for predicting the likelihood of Autism Spectrum Disorder (ASD) based on behavioral features and demographic information.
+
+## Overview
+
+This application uses a machine learning model to predict the likelihood of ASD based on the following features:
+- 10 behavioral questions (A1_Score through A10_Score)
+- Demographic information (age, gender, ethnicity, etc.)
+- Family history (jaundice, family members with autism)
+
+The model has been trained on a dataset containing information about individuals with and without ASD diagnosis.
 
 ## Features
 
-- Interactive web interface for input of medical parameters
-- Real-time prediction using Random Forest Classifier
-- Visualization of prediction results and model performance
-- Feature importance analysis
-- Detailed information about each medical parameter
+- **Prediction Tool**: Get an instant prediction on the likelihood of ASD based on user inputs
+- **Data Insights**: Explore dataset statistics, distributions, and feature importance
+- **Interactive Visualizations**: Graphs and charts to understand the dataset and prediction results
+- **User-friendly Interface**: Simple and intuitive UI designed for ease of use
 
-## Setup
+## Installation
 
 1. Clone this repository:
-```bash
-git clone <repository-url>
-cd ckd
+```
+git clone [repository-url]
+cd autism-prediction
 ```
 
 2. Install the required dependencies:
-```bash
+```
 pip install -r requirements.txt
 ```
-pip install streamlit pandas numpy scikit-learn plotly
 
 3. Run the Streamlit app:
-```bash
-streamlit run app.py 
+```
+streamlit run app.py
 ```
 
-The application will open in your default web browser.
+## Dataset
 
-## Usage
-
-1. Enter the patient's medical parameters in the sidebar
-2. Click the "Predict" button to get the prediction
-3. View the results, including:
-   - Diagnosis (High/Low risk of CKD)
-   - Probability of CKD
-   - Model performance metrics
-   - Feature importance analysis
-
-## Data Description
-
-The model uses the following medical parameters for prediction:
-
-- Age: Patient's age in years
-- Blood Pressure (Bp): mm/Hg
-- Specific Gravity (Sg)
-- Albumin (Al)
-- Sugar (Su)
-- Blood Glucose Random (Bgr): mgs/dl
-- Blood Urea (Bu): mgs/dl
-- Serum Creatinine (Sc): mgs/dl
-- Sodium (Sod): mEq/L
-- Potassium (Pot): mEq/L
-- Hemoglobin (Hemo): gms
-- Packed Cell Volume (Pcv)
-- White Blood Cell Count (Wbcc): cells/cumm
-- Red Blood Cell Count (Rbcc): millions/cmm
-- And various other categorical parameters
+The app uses the Autism Screening Adult dataset with the following variables:
+- A1_Score to A10_Score: Answers to the 10 questions on the AQ-10 screening test (0 = No, 1 = Yes)
+- age: Age of the individual in years
+- gender: Gender (m = Male, f = Female)
+- ethnicity: Ethnicity of the individual
+- jaundice: Whether the individual was born with jaundice (yes/no)
+- austim: Whether the individual has a family member with autism (yes/no)
+- contry_of_res: Country of residence
+- used_app_before: Whether the individual has used a screening app before (yes/no)
+- result: Total score on the AQ-10 test
+- age_desc: Age description (e.g., "18 and more")
+- relation: Relation of the person completing the questionnaire
+- Class/ASD: Target variable (1 = ASD, 0 = No ASD)
 
 ## Model
 
-The application uses a Random Forest Classifier trained on the CKD dataset. The model is trained with the following specifications:
+The application uses a logistic regression model trained on the dataset. The model takes in the behavioral and demographic features and outputs a probability score representing the likelihood of ASD.
 
-- Train-test split: 80-20
-- Feature scaling: StandardScaler
-- Number of trees: 100
-- Random state: 42
+## Notes
 
-## Requirements
-
-- Python 3.8+
-- Streamlit
-- Pandas
-- NumPy
-- Scikit-learn
-- Plotly
-
-
+- This application is for educational and research purposes only
+- It is not a substitute for professional medical advice, diagnosis, or treatment
+- Please consult with a healthcare professional for proper evaluation

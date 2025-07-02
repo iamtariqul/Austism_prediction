@@ -3,71 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CKD Prediction</title>
+    <title>Autism Spectrum Disorder Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .card {
+            flex: 1;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            border: none;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .results {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .positive {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .negative {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>Chronic Kidney Disease (CKD) Prediction</h1>
+    <div class="header">
+        <h1>Autism Spectrum Disorder Prediction</h1>
+        <p>Fill in the form to get a prediction based on behavioral and demographic features</p>
+    </div>
 
-    <form action="/predict" method="POST">
-        <label for="age">Age:</label>
-        <input type="text" name="age" required><br><br>
+    <div class="container">
+        <div class="card">
+            <h2>About the Tool</h2>
+            <p>This application uses machine learning to predict the likelihood of Autism Spectrum Disorder based on behavioral traits and demographic information.</p>
+            <p>The model has been trained on the Autism Screening dataset, which contains information about individuals with and without ASD diagnosis.</p>
+            <p><strong>Note:</strong> This tool is for educational purposes only and should not be used for medical diagnosis. Please consult with a healthcare professional for proper evaluation.</p>
+        </div>
+        <div class="card">
+            <h2>How to Use</h2>
+            <p>1. Enter your behavioral scores and demographic information in the form.</p>
+            <p>2. Click the "Predict" button to see your results.</p>
+            <p>3. The model will calculate a probability score indicating the likelihood of ASD.</p>
+            <p>4. Results are displayed along with a visual representation of the probability.</p>
+            <p>5. You can also explore the "Data Insights" section to learn more about the dataset.</p>
+        </div>
+    </div>
 
-        <label for="bp">Blood Pressure:</label>
-        <input type="text" name="bp" required><br><br>
-
-        <label for="sg">Specific Gravity:</label>
-        <input type="text" name="sg" required><br><br>
-
-        <label for="al">Albumin:</label>
-        <input type="text" name="al" required><br><br>
-
-        <label for="su">Sugar:</label>
-        <input type="text" name="su" required><br><br>
-
-        <label for="rbc">Red Blood Cells (RBC):</label>
-        <input type="text" name="rbc" required><br><br>
-
-        <label for="pc">Pus Cells (PC):</label>
-        <input type="text" name="pc" required><br><br>
-
-        <label for="pcc">Pus Cell Clumps (PCC):</label>
-        <input type="text" name="pcc" required><br><br>
-
-        <label for="ba">Bacteria Presence (Ba):</label>
-        <input type="text" name="ba" required><br><br>
-
-        <label for="pcv">Packed Cell Volume (PCV):</label>
-        <input type="text" name="pcv" required><br><br>
-
-        <label for="wbcc">White Blood Cell Count (WBCC):</label>
-        <input type="text" name="wbcc" required><br><br>
-
-        <label for="rbcc">Red Blood Cell Count (RBCC):</label>
-        <input type="text" name="rbcc" required><br><br>
-
-        <label for="htn">Hypertension (HTN):</label>
-        <input type="text" name="htn" required><br><br>
-
-        <label for="dm">Diabetes Mellitus (DM):</label>
-        <input type="text" name="dm" required><br><br>
-
-        <label for="cad">Coronary Artery Disease (CAD):</label>
-        <input type="text" name="cad" required><br><br>
-
-        <label for="appet">Appetite:</label>
-        <input type="text" name="appet" required><br><br>
-
-        <label for="pe">Pedal Edema (PE):</label>
-        <input type="text" name="pe" required><br><br>
-
-        <label for="ane">Anemia (Ane):</label>
-        <input type="text" name="ane" required><br><br>
-
-        <button type="submit">Predict CKD</button>
-    </form>
-
-    {% if prediction %}
-        <h2>Prediction Result: {{ prediction }}</h2>
-    {% endif %}
+    <div class="footer">
+        <p>Autism Spectrum Disorder Prediction Tool &copy; 2023</p>
+        <p>This application is for educational and research purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment.</p>
+    </div>
 </body>
 </html>
