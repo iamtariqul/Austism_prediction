@@ -115,11 +115,13 @@ if page == "Prediction":
             st.write(f"**Prediction:** {'ASD Positive' if prediction == 1 else 'ASD Negative'}")
             
             if prediction == 1:
-                st.warning("The model predicts a high likelihood of Autism Spectrum Disorder.")
+                st.error("The model predicts a higher likelihood of Autism Spectrum Disorder.")
                 
             else:
                 st.success("The model predicts a low likelihood of Autism Spectrum Disorder.")
                 
+            # Display model accuracy information
+            st.info("Model accuracy: 88% (Based on validation data)")
                 
         with col2:
             # Create gauge chart for probability
